@@ -1,2 +1,2 @@
 # roster
-Builds rosters for manager's teams
+Builds rosters for a manager's teams
