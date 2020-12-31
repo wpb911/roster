@@ -29,10 +29,10 @@ const promptUser = () => {
       {
         type: 'input',
         name: 'name',
-        message: "What is the employee's name?",
+        message: "What is the employee's name(1st letter capital, no numbers)?",
         validate: function (value) {
           var pass = value.match(
-            /^[a-zA-Z]+$/
+            /^[A-Z][a-zA-Z]+$/
           );
           if (pass) {
             return true;
@@ -50,23 +50,64 @@ const promptUser = () => {
         type: 'input',
         name: 'email',
         message: 'Please provide the email address?',
+        validate: function (value) {
+          var pass = value.match(
+            /\b[\w.!#$%&’*+\/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)*\b/
+          );
+          if (pass) {
+            return true;
+          }
+    
+          return 'Please enter a valid email address';
+        },
       },
       {
         type: 'input',
         name: 'officeNumber',
-        message: "Please provide the Manager's office number?",    
+        message: "Please provide the Manager's office number?(numbers, letters, dashes only",
+        validate: function (value) {
+          var pass = value.match(
+            /^[A-Z0-9\-]+$/
+          );
+          if (pass) {
+            return true;
+          }
+    
+          return 'Please enter a valid office number';
+        },
+            
         when: (answers) => answers.type === 'Manager'
       },
       {
         type: 'input',
         name: 'github',
-        message: "Please provide the Engineer's github username?",
+        message: "Please provide the Engineer's github username?(all lowercase and numbers)",
+        validate: function (value) {
+          var pass = value.match(
+            /^[a-z0-9]+$/
+          );
+          if (pass) {
+            return true;
+          }
+    
+          return 'Please enter a valid github username';
+        },
         when: (answers) => answers.type === 'Engineer'
       },
       {
         type: 'input',
         name: 'school',
-        message: "Please provide the Intern's school?",
+        message: "Please provide the Intern's school?(1st letter capital, numbers allowed)",
+        validate: function (value) {
+          var pass = value.match(
+            /^[A-Z][a-zA-Z0-9]+$/
+          );
+          if (pass) {
+            return true;
+          }
+    
+          return 'Please enter a valid school name';
+        },
         when: (answers) => answers.type === 'Intern'
       },
       {
