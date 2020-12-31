@@ -106,11 +106,12 @@ const init = async () => {
       //auto generate the id numbers starting at 1
       var idnumber = 1;
 
-      //Gather team members until finished
+      //Input team members until manager chooses to stop
       while(true) {
+
+        //Ask for information on specific team member
         const answers = await promptUser();
-        
-        
+                
         //Add new employees to the team array based on employee type
         if(answers.type === "Manager") {
           team.push(new Manager(answers.name, idnumber, answers.email, answers.officeNumber));
@@ -127,7 +128,7 @@ const init = async () => {
                              
         }
 
-        //automatically increment ID number for next employee
+        //increment ID number for next employee
         idnumber++;   
 
         console.log(team);
@@ -139,8 +140,6 @@ const init = async () => {
 
       //render the team from the array to HTML 
       const teamRender = render(team);
-
-      //console.log(`Render Team HTML ${teamRender}`);
 
       // if output directory exists then write HTML file to output directory 
       // if not create directory then write HTML file to output directory 

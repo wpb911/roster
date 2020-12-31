@@ -3,7 +3,7 @@
   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 ## Description 
-Builds rosters for a manager's teams by implementing a CLI using inquirer.js.  Tests were provided using jest. The application use OOP programming techniques and is based of an employee class with the other classes inheriting from employee. The other classes define Manager, Engineer, and Intern with specific charateristics for each employee type.
+This application builds rosters for a manager's teams by implementing a CLI using inquirer.js.  Tests were provided using jestjs.io. The application uses OOP techniques and is built on an Employee base class with the other classes inheriting from Employee. The other classes define Manager, Engineer, and Intern with specific charateristics for each employee type. The program outputs an HTML roster of the team with the name, emails, github addresses, school and office number attributes based on the employee type.  This provides the manager with an easy way to generate a roster anytime their team changes. 
 
 
 * [Installation](#Installation)
