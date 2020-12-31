@@ -30,6 +30,16 @@ const promptUser = () => {
         type: 'input',
         name: 'name',
         message: "What is the employee's name?",
+        validate: function (value) {
+          var pass = value.match(
+            /^[a-zA-Z]+$/
+          );
+          if (pass) {
+            return true;
+          }
+    
+          return 'Please enter a valid name';
+        },
       },      
       // {
       //   type: 'input',
@@ -149,7 +159,7 @@ const init = async () => {
         console.log('The path exists. : ' + OUTPUT_DIR);
       } 
       else {
-          fs.mkdir(OUTPUT_DIR);
+          fs.mkdirSync(OUTPUT_DIR);
           await writeFileAsync(outputPath, teamRender);
           console.log('Path created. : ' + OUTPUT_DIR);
         }
