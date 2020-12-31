@@ -160,7 +160,7 @@ const init = async () => {
         //increment ID number for next employee
         idnumber++;   
 
-        console.log(team);
+        //console.log(team);
                 
         //End the input when no more employees need to be entered
         if (answers.stop) break;        
@@ -179,8 +179,9 @@ const init = async () => {
       } 
       else {
           fs.mkdirSync(OUTPUT_DIR);
-          await writeFileAsync(outputPath, teamRender);
           console.log('Path created. : ' + OUTPUT_DIR);
+          await writeFileAsync(outputPath, teamRender);
+          console.log('team.html successfully written to : ' + OUTPUT_DIR);
         }        
       
       } catch (err) {
