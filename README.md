@@ -27,7 +27,7 @@ All contributions must follow the [Contributor Covenant](CODE_OF_CONDUCT.md)
 
 
 ## Tests
-All tests are located in the test directory and this application has pass all of them successfully.
+All tests are located in the test directory and this application has passed 100% of them successfully.
 
 
 ## Questions
