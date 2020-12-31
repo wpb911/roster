@@ -15,15 +15,16 @@ This application builds rosters for a manager's teams by implementing a CLI usin
 
 
 ## Installation
-Copy files from github repo to desired directory run npm install in the directory 
+Copy files from github repo to desired directory.
+Run 'npm install' in the directory 
 
 ## Usage
-node app.js
+run 'node app.js'
 
-A sample run of the application can be seen here:[Sample Video](roster.mov) 
+A sample run of the application can be seen here: [Sample Video](roster.mov). 
 
 ## Contributing
-All contributions must follow the [Contributor Covenant](CODE_OF_CONDUCT.md)
+All contributions must follow the [Contributor Covenant](CODE_OF_CONDUCT.md).
 
 
 ## Tests
