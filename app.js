@@ -72,9 +72,6 @@ const promptUser = () => {
 };
 
 
-
-//promptUser();
-
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
@@ -105,7 +102,7 @@ const init = async () => {
       
       //create team array 
       let team = [];
-      
+
       //auto generate the id numbers starting at 1
       var idnumber = 1;
 
@@ -113,44 +110,52 @@ const init = async () => {
       while(true) {
         const answers = await promptUser();
         
-        //console.log(answers);
-
-        //Add new employees to the team array based on type
+        
+        //Add new employees to the team array based on employee type
         if(answers.type === "Manager") {
           team.push(new Manager(answers.name, idnumber, answers.email, answers.officeNumber));
-             
-          console.log(`Id number is ${idnumber}`);   
-          idnumber++;  
+          
         }
 
         if(answers.type === "Engineer") {
           team.push(new Engineer(answers.name, idnumber, answers.email, answers.github)); 
-              
-          console.log(`Id number is ${idnumber}`); 
-          idnumber++;   
+            
         }
 
         if(answers.type === "Intern") {
           team.push(new Intern(answers.name, idnumber, answers.email, answers.school)); 
-             
-          console.log(`Id number is ${idnumber}`); 
-          idnumber++;   
+                             
         }
 
-        console.log(team);
-        //console.log(`Id number is ${idnumber}`);
-        
-        //End the input when no more employees need to be entered
-        if (answers.stop) break;
-        
+        //automatically increment ID number for next employee
+        idnumber++;   
 
+        console.log(team);
+                
+        //End the input when no more employees need to be entered
+        if (answers.stop) break;        
+        
       }
 
-      // const html = generateREADME(answers);
+      //render the team from the array to HTML 
+      const teamRender = render(team);
+
+      //console.log(`Render Team HTML ${teamRender}`);
+
+      // if output directory exists then write HTML file to output directory 
+      // if not create directory then write HTML file to output directory 
+      if (fs.existsSync(OUTPUT_DIR)) {
+        await writeFileAsync(outputPath, teamRender);
+        //fs.writeFileSync(outputPath, teamRender);
+        console.log('The path exists. : ' + OUTPUT_DIR);
+      } 
+      else {
+          fs.mkdir(OUTPUT_DIR);
+          await writeFileAsync(outputPath, teamRender);
+          console.log('Path created. : ' + OUTPUT_DIR);
+        }
+        
       
-      // await writeFileAsync('team.html', html);
-      
-      // console.log('Successfully wrote to team.html');
       } catch (err) {
         console.log(err);
         }
